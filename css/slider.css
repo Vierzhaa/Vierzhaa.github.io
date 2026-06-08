@@ -1,5 +1,5 @@
 /* slider.css */
-@import url("https://googleapis.com");
+/* @import url("https://googleapis.com"); */
 
 @font-face {
   font-family: "ICA Rubrik Bold";
@@ -151,7 +151,7 @@
 }
 
 .banner .content .description {
-  right: 10px;
+  right: 00px;
   max-width: 200px;
   line-height: 1;
   font-family: "Poppins Regular";
@@ -225,10 +225,9 @@
     transform: translateY(-50%) rotate(360deg);
   }
 }
-
+/* hi guys */
 .headsc {
-  animation: autoShowAnimation both;
-  animation-timeline: view(70% 5%);
+  
   font-family: "Alex Brush", cursive;
   font-size: 5vw;
   color: black;
@@ -269,7 +268,6 @@
 }
 
 .sliderr .list .item {
-  border: 2px solid black;
   width: var(--width);
   height: var(--height);
   position: absolute;
@@ -277,22 +275,39 @@
   animation: slideRun 10s linear infinite;
   transition: filter 0.5s;
   animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1));
+  padding-right: 8px; /* gap lives here now */
+  box-sizing: border-box;
 }
 
 .sliderr .list .item img {
-  width: calc(100% - 8px); /* 8px gap on the right of each item */
+  width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
+.sliderr[reverse="true"] .item {
+  animation: reversePlay 10s linear infinite;
+  animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1));
+}
+
+@keyframes reversePlay {
+  from { left: calc(var(--width) * -1); }
+  to   { left: 100%; }
+}
+
 @keyframes slideRun {
-  from { left: 100%; }
-  to { left: calc(var(--width) * -1); }
+  from {
+    left: 100%;
+  }
+  to {
+    
+    left: calc(var(--width) * -1);
+  }
 }
 
 .sliderr:hover .item {
-  animation-play-state: paused;
+  animation-play-state: paused!important;
   filter: grayscale(1);
 }
 
@@ -300,11 +315,13 @@
   filter: grayscale(0);
 }
 
+
 .text {
   font-size: 1.5vw;
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 90vh;
+  
 }
 
 .parag1,
@@ -316,6 +333,13 @@
   position: absolute;
   animation: autoShowAnimation both;
   animation-timeline: view(70% 5%);
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px);            
+  -webkit-backdrop-filter: blur(10px);  
+  padding: 10px 25px;                    
+  border-radius: 12px;                  
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .parag1 {
@@ -324,22 +348,22 @@
 }
 
 .parag2 {
-  top: 12.5vh;
+  top: 15vh;
   right: 5vw;
 }
 /* gap 25vh or 12.5vh */
 .parag3 {
-  top: 25vh;
+  top: 30vh;
   left: 5vw;
 }
 
 .parag4 {
-  top: 37.5vh;
+  top: 45vh;
   right: 5vw;
 }
 
 .parag5 {
-  top: 50vh;
+  top: 60vh;
   left: 5vw;
 }
 
@@ -447,6 +471,59 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);   */
   }
+
+  .text {
+  font-size: 2vw;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+}
+
+
+.parag1 {
+  top: 1vh;
+  left: 5vw;
+}
+
+.parag2 {
+  top: 15vh;
+  right: 5vw;
+}
+/* gap 25vh or 12.5vh */
+.parag3 {
+  top: 30vh;
+  left: 5vw;
+}
+
+.parag4 {
+  top: 45vh;
+  right: 5vw;
+}
+
+.parag5 {
+  top: 60vh;
+  left: 5vw;
+}
+
+
+.parag1,
+.parag2,
+.parag3,
+.parag4,
+.parag5 {
+  max-width: 40vw;
+  position: absolute;
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+   background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px);            
+  -webkit-backdrop-filter: blur(10px);  
+  padding: 5px 5px;                    
+  border-radius: 12px;                  
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
 }
 
 @media screen and (max-width: 480px) {
@@ -536,8 +613,37 @@
   .sliderr {
     --width: 200px;
     --height: 50px;
-    mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 5% 95%,
+      transparent
+    );
   }
 
+  .text {
+  font-size: 3vw;
+  position: relative;
+  width: 100%;
+  height: 85vh;
+}
 
+
+.parag1,
+.parag2,
+.parag3,
+.parag4,
+.parag5 {
+  max-width: 40vw;
+  position: absolute;
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+   background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px);            
+  -webkit-backdrop-filter: blur(10px);  
+  padding: 7px 5px;                    
+  border-radius: 12px;                  
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
 }
