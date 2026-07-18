@@ -88,9 +88,18 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <img />
+    <div class="menu-container">
+        <button class="menu-button" id="menuBtn">&#8942;</button>
+        <div class="dropdown-content" id="dropdownMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#projects">My Projects</a>
+            <a href="https://github.com/vierzhaa">Contact</a>
+        </div>
+    </div>
+
     <!-- Main container for the 3D slider and content -->
-    <div class="banner">
+    <div id="home" class="banner">
       <!-- 3D slider container -->
       <div class="slider" style="--quantity: 10">
         <div class="item" style="--position: 1">
@@ -130,7 +139,6 @@
         <h1 data-content="I LOVE YOU">I LOVE YOU</h1>
         <div class="author">
           <h2 data-content="Vierzha">Vierzha</h2>
-          <strong>My Web</strong>
           <p
             data-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
             nihil impedit temporibus"
@@ -143,36 +151,36 @@
         <div class="model"></div>
       </div>
     </div>
-    <div class="banner-box">
+    <div id="about" class="banner-box">
       <img class="h" src="images/sep.png" alt="sep" />
       <img class="exl" src="images/exl.png" alt="" />
-      <h2 class="headsc">Hi guys</h2>
+      <h2 class="headsc">About me</h2>
     </div>
-    <div class="sliderr" style="--width: 100px; --height: 50px; --quantity: 8">
+    <div class="sliderrr" style="--width: 100px; --height: 50px; --quantity: 8">
       <div class="list">
         <div class="item" style="--position: 1">
-          <img src="images/vb.png" alt="" />
+          <img src="images/vb.png" alt="1" />
         </div>
         <div class="item" style="--position: 2">
-          <img src="images/va.png" alt="" />
+          <img src="images/va.png" alt="2" />
         </div>
         <div class="item" style="--position: 3">
-          <img src="images/vs.png" alt="" />
+          <img src="images/vs.png" alt="3" />
         </div>
         <div class="item" style="--position: 4">
-          <img src="images/vx.png" alt="" />
+          <img src="images/vx.png" alt="4" />
         </div>
         <div class="item" style="--position: 5">
-          <img src="images/vy.png" alt="" />
+          <img src="images/vy.png" alt="5" />
         </div>
         <div class="item" style="--position: 6">
-          <img src="images/vz.png" alt="" />
+          <img src="images/vz.png" alt="6" />
         </div>
         <div class="item" style="--position: 7">
-          <img src="images/vr.png" alt="" />
+          <img src="images/vr.png" alt="7" />
         </div>
         <div class="item" style="--position: 8">
-          <img src="images/vg.png" alt="" />
+          <img src="images/vg.png" alt="8" />
         </div>
       </div>
     </div>
@@ -224,10 +232,10 @@
         </p>
       </div>
     </div>
-    <div
+    <!-- <div
       class="sliderr"
       reverse="true"
-      style="--width: 150px; --height: 150px; --quantity: 7"
+      style="--width: 10vw; --quantity: 7"
     >
       <div class="list">
         <div class="item" style="--position: 1">
@@ -252,10 +260,52 @@
           <img src="images/slider2_7.jpeg" alt="" />
         </div>
       </div>
+    </div> -->
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <br><br><br><br><br><br>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <br><br><br><br><br><br>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <br />
+    <div id="projects" class="banner-box2">
+      <img class="h" src="images/sep.png" alt="sep" />
+      <img class="exl" src="images/exl.png" alt="" />
+      <h2 class="headsc2">my projects</h2>
     </div>
+    <div class="grid-container">
+      <div class="g-item"><h3>project 1</h3></div>
+      <div class="g-item"><h3>project 2</h3></div>
+      <div class="g-item"><h3>project 3</h3></div>
+      <div class="g-item"><h3>project 4</h3></div>
+      <div class="g-item"><h3>project 5</h3></div>
+      <div class="g-item"><h3>project 6</h3></div>
+      <div class="g-item"><h3>project 7</h3></div>
+      <div class="g-item"><h3>project 8</h3></div>
+      <div class="g-item"><h3>project 9</h3></div>
+    </div>
+    <br /><br /><br /><br /><br /><br />
     <div class="w">
       <p class="wr">this is not the final version</p>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <script src="script.js"></script>
   </body>
 </html>
