@@ -32,6 +32,11 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .menu-container {
   position: fixed;
   top: 20px;
@@ -40,7 +45,7 @@ html {
 }
 
 .menu-button {
-  background: #9E9FA5;
+  background: #9e9fa5;
   color: black;
   border: 1px solid #25283b;
   font-size: 28px;
@@ -51,7 +56,7 @@ html {
 }
 
 .menu-button:hover {
-  background: #D2D2D2;
+  background: #d2d2d2;
 }
 
 .dropdown-content {
@@ -60,7 +65,7 @@ html {
   right: 0;
   top: 60px;
   border: 2px solid #0e0e0e;
-  background-color: #9440DD;
+  background-color: #9440dd;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -75,7 +80,7 @@ html {
 }
 
 .dropdown-content a:hover {
-  background-color:#B7C4F8;
+  background-color: #b7c4f8;
 }
 
 .show {
@@ -218,6 +223,7 @@ html {
   line-height: 1;
   font-family: "Poppins Regular";
   text-align: left;
+  color: #c470f1;
   position: relative;
 }
 
@@ -226,8 +232,75 @@ html {
   inset: 0 0 0 0;
   content: attr(data-content);
   z-index: 2;
-  -webkit-text-stroke: 0.02vw #d2d2d2;
+  -webkit-text-stroke: 0.05vw #000000;
   color: transparent;
+}
+
+.next {
+  font-family: "fira code", monospace;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  border-radius: 17px;
+  border: 1px solid #9e9fa5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-size: 2vw;
+  text-align: left;
+  position: absolute;
+  bottom: 2.3vh;
+  right: 5vw;
+  z-index: 10;
+  transition:
+    border 0.7s ease,
+    border-radius 0.7s ease-in-out;
+}
+
+.next2 {
+  font-family: "fira code", monospace;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  border-radius: 17px;
+  border: 1px solid #9e9fa5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-size: 2vw;
+  text-align: left;
+  position: absolute;
+  bottom: 7vh;
+  right: 5vw;
+  z-index: 10;
+  transition:
+    border 0.7s ease,
+    border-radius 0.7s ease-in-out;
+}
+
+.next3 {
+  font-family: "fira code", monospace;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  border-radius: 17px;
+  border: 1px solid #9e9fa5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-size: 2vw;
+  text-align: left;
+  position: absolute;
+  bottom: calc(-200vh+10vw);
+  right: 5vw;
+  z-index: 10;
+  transition:
+    border 0.7s ease,
+    border-radius 0.7s ease-in-out;
+}
+
+.next:hover,
+.next2:hover,
+.next3:hover {
+  border: 5px solid #9440dd;
+  border-radius: 67px;
 }
 
 .banner .content .model {
@@ -312,8 +385,6 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);   */
 }
-
-
 
 .headsc2 {
   font-family: "fira code", monospace;
@@ -451,7 +522,7 @@ html {
   font-size: 1.5vw;
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 60vh;
 }
 
 .parag1,
@@ -487,7 +558,7 @@ html {
   left: 5vw;
 }
 
-.parag4 {
+/* .parag4 {
   top: 45vh;
   right: 5vw;
 }
@@ -495,7 +566,7 @@ html {
 .parag5 {
   top: 60vh;
   left: 5vw;
-}
+} */
 
 @keyframes autoShowAnimation {
   from {
@@ -536,7 +607,7 @@ html {
   padding: 2em;
   background-color: rgba(160, 51, 193, 0.826);
   color: rgb(100, 25, 125);
-  font-size: 1.5rem;
+  font-size: 2vw;
   font-family: "Fira Code", monospace;
 
   border-radius: 25px;
@@ -555,6 +626,12 @@ html {
 
 .grid-container:hover .g-item:not(:hover) {
   border-radius: 11px;
+}
+
+@media screen and (min-width: 1667px) {
+  .next {
+    right: -7vw;
+  }
 }
 
 @media screen and (max-width: 1200px) {
