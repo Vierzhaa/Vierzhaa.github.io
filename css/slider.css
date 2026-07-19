@@ -1,5 +1,6 @@
 /* slider.css */
-/* @import url("https://googleapis.com"); */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
 @font-face {
   font-family: "ICA Rubrik Bold";
@@ -260,7 +261,7 @@ a {
 }
 
 .next {
-  font-family: "fira code", monospace;
+  font-family: "Fira Code", monospace;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -280,7 +281,7 @@ a {
 }
 
 .next2 {
-  font-family: "fira code", monospace;
+  font-family: "Fira Code", monospace;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -300,7 +301,7 @@ a {
 }
 
 .next3 {
-  font-family: "fira code", monospace;
+  font-family: "Fira Code", monospace;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
@@ -386,7 +387,7 @@ a {
 }
 /* hi guys */
 .headsc {
-  font-family: "fira code", monospace;
+  font-family: "Fira Code", monospace;
   font-size: 3.5vw;
   color: black;
   -webkit-text-stroke: 0.025vw rgb(255, 255, 255);
@@ -410,7 +411,7 @@ a {
 }
 
 .headsc2 {
-  font-family: "fira code", monospace;
+  font-family: "Fira Code", monospace;
   font-size: 3.5vw;
   color: black;
   -webkit-text-stroke: 0.025vw rgb(255, 255, 255);
@@ -710,7 +711,7 @@ a {
       translateZ(180px);
   }
   .headsc {
-    font-family: "fira code", monospace;
+    font-family: "Fira Code", monospace;
     font-size: 5vw;
     color: black;
     -webkit-text-stroke: 1px rgb(255, 255, 255);
@@ -841,7 +842,7 @@ a {
   }
 
   .headsc {
-    font-family: "fira code", monospace;
+    font-family: "Fira Code", monospace;
     font-size: 5vw;
     color: black;
     -webkit-text-stroke: 0.03vw rgb(255, 255, 255);
@@ -865,7 +866,7 @@ a {
   }
 
   .headsc2 {
-    font-family: "fira code", monospace;
+    font-family: "Fira Code", monospace;
     font-size: 5vw;
     color: black;
     -webkit-text-stroke: 0.03vw rgb(255, 255, 255);

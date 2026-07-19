@@ -1,306 +1,439 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/base.css" rel="stylesheet" />
-    <link href="/css/slider.css" rel="stylesheet" />
-    <title>Vierzha</title>
+    <title>Hi</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-    <!-- favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="fav/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="fav/apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="fav/apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="fav/apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="fav/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="fav/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="fav/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="fav/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="fav/apple-icon-180x180.png"
-    />
+      :root {
+        --bg-color: #0b0f14;
+        --font-family: "Poppins", sans-serif;
+        --theme-color: #2a2c30;
+        --theme-glow-rgb: 42, 44, 48;
+        --shade-color: #2c2c2c;
+        --bulb-color: #1a1a1a;
+        --light-opacity: 0;
+        --btn-text-color: #888;
+        --btn-bg: #2a2c30;
+      }
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="fav/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="fav/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="fav/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="fav/favicon-16x16.png"
-    />
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <link rel="manifest" href="manifest.json" />
+      body {
+        background-color: var(--bg-color);
+        color: #ffffff;
+        font-family: var(--font-family);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+      }
 
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="fav/ms-icon-144x144.png" />
+      .container {
+        display: flex;
+        width: 100%;
+        max-width: 1100px;
+        height: 600px;
+        padding: 2rem;
+        gap: 2rem;
+      }
 
-    <meta name="theme-color" content="#ffffff" />
+      .lamp-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .lamp-svg {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        overflow: visible;
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+      }
+
+      .shade-main {
+        fill: var(--shade-color);
+        transition: fill 0.6s ease;
+      }
+      .shade-inner {
+        fill: var(--bulb-color);
+        transition: fill 0.6s ease;
+      }
+      .light-cone {
+        opacity: var(--light-opacity);
+        transition: opacity 0.6s ease;
+      }
+      .face-sleep {
+        transition: opacity 0.3s ease;
+      }
+      .face-awake {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .pull-string-group {
+        cursor: pointer;
+        transform-origin: top;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .pull-string-group:hover .string-handle {
+        stroke: #ffffff;
+      }
+
+      .lamp-ambient-glow {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(var(--theme-glow-rgb), 0.15) 0%,
+          transparent 70%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        transition: background 0.6s ease;
+        pointer-events: none;
+      }
+
+      .login-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .login-card {
+        width: 100%;
+        max-width: 400px;
+        background: rgba(18, 24, 32, 0.6);
+        backdrop-filter: blur(12px);
+        padding: 3rem 2.5rem;
+        border-radius: 20px;
+        border: 2px solid var(--theme-color);
+        box-shadow:
+          0 0 30px rgba(var(--theme-glow-rgb), 0.15),
+          inset 0 0 15px rgba(255, 255, 255, 0.02);
+        transition:
+          border-color 0.6s ease,
+          box-shadow 0.6s ease;
+      }
+
+      .login-card h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2rem;
+
+
+      }
+      .input-group {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .input-group label {
+        font-size: 0.85rem;
+        color: #a0a0a0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .input-group input {
+        background: #151a21;
+        border: 1px solid #2a2c30;
+        padding: 1rem 1.2rem;
+        border-radius: 10px;
+        color: #fff;
+        outline: none;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .input-group input:focus {
+        border-color: var(--theme-color);
+        box-shadow: 0 0 10px rgba(var(--theme-glow-rgb), 0.3);
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: 10px;
+        background: var(--btn-bg);
+        color: var(--btn-text-color);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: all 0.4s ease;
+      }
+
+      .login-btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+      }
+      .forgot-pass {
+        display: block;
+        text-align: center;
+        margin-top: 1.5rem;
+        color: #777;
+        text-decoration: none;
+      }
+      .forgot-pass:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          height: auto;
+        }
+        .lamp-svg {
+          max-width: 250px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="menu-container">
-      <button class="menu-button" id="menuBtn">&#8942;</button>
-      <div class="dropdown-content" id="dropdownMenu">
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#projects">My Projects</a>
-        <a href="https://github.com/vierzhaa">Umm.....</a>
+    <div class="container">
+      <div class="lamp-section">
+        <div class="lamp-ambient-glow"></div>
+        <svg
+          class="lamp-svg"
+          viewBox="0 0 300 450"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="lightConeGrad"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+            <clipPath id="mouthClip">
+              <path d="M 125 155 Q 150 190 175 155 Z" />
+            </clipPath>
+          </defs>
+
+          <polygon
+            points="90,180 210,180 320,450 -20,450"
+            fill="url(#lightConeGrad)"
+            class="light-cone"
+          />
+          <ellipse cx="150" cy="400" rx="60" ry="15" fill="#151515" />
+          <ellipse cx="150" cy="395" rx="60" ry="15" fill="#3a3c40" />
+          <rect x="140" y="180" width="20" height="220" fill="#2a2c30" />
+          <rect x="142" y="180" width="8" height="220" fill="#4a4c50" />
+          <ellipse cx="150" cy="175" rx="90" ry="20" class="shade-inner" />
+
+          <g class="pull-string-group" onclick="toggleLamp()">
+            <line
+              x1="105"
+              y1="180"
+              x2="105"
+              y2="280"
+              stroke="#555"
+              stroke-width="3"
+            />
+            <line
+              x1="105"
+              y1="280"
+              x2="105"
+              y2="310"
+              stroke="#888"
+              stroke-width="6"
+              stroke-linecap="round"
+              class="string-handle"
+            />
+          </g>
+
+          <path
+            d="M 95 60 Q 150 45 205 60 L 240 175 Q 150 195 60 175 Z"
+            class="shade-main"
+          />
+
+          <g class="face-sleep">
+            <path
+              d="M 115 130 Q 125 140 135 130"
+              stroke="#111"
+              stroke-width="4"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <path
+              d="M 165 130 Q 175 140 185 130"
+              stroke="#111"
+              stroke-width="4"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </g>
+
+          <g class="face-awake">
+            <path
+              d="M 115 130 Q 125 115 135 130"
+              stroke="#111"
+              stroke-width="4"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <path
+              d="M 165 130 Q 175 115 185 130"
+              stroke="#111"
+              stroke-width="4"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <g>
+              <path d="M 125 155 Q 150 190 175 155 Z" fill="#111" />
+              <path
+                d="M 140 165 Q 150 190 160 165 Z"
+                fill="#f87171"
+                clip-path="url(#mouthClip)"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="login-section">
+        <div class="login-card">
+          <h2>Hey there!</h2>
+          
+          <form onsubmit="event.preventDefault(); senddata();">
+            <div class="input-group">
+              <label>What's ur name btw?</label>
+              <input type="text" id="name" placeholder="ur name" maxlength="11"/>
+            </div>
+            <h6 id="Error" style="color: rgb(241, 78, 182); font-weight: bold;" onclick="cls()"></h6>
+            <button type="submit" class="login-btn">Submit</button>
+          </form>
+          <a href="main.html" class="forgot-pass">Skip</a>
+        </div>
       </div>
     </div>
 
-    <!-- Main container for the 3D slider and content -->
-    <div id="home" class="banner">
-      <!-- 3D slider container -->
-      <div class="slider" style="--quantity: 10">
-        <div class="item" style="--position: 1">
-          <a href="https://github.com/vierzhaa">
-            <img src="/images/haein1.jpeg" alt="haein 1" />
-          </a>
-        </div>
-        <div class="item" style="--position: 2">
-          <img src="/images/haein2.jpeg" alt="haein 2" />
-        </div>
-        <div class="item" style="--position: 3">
-          <img src="/images/haein3.jpeg" alt="haein 3" />
-        </div>
-        <div class="item" style="--position: 4">
-          <img src="/images/haein4.jpeg" alt="haein 4" />
-        </div>
-        <div class="item" style="--position: 5">
-          <img src="/images/haein5.jpeg" alt="haein 5" />
-        </div>
-        <div class="item" style="--position: 6">
-          <img src="/images/haein6.jpeg" alt="haein 6" />
-        </div>
-        <div class="item" style="--position: 7">
-          <img src="/images/haein7.jpeg" alt="haein 7" />
-        </div>
-        <div class="item" style="--position: 8">
-          <img src="/images/haein8.jpeg" alt="haein 8" />
-        </div>
-        <div class="item" style="--position: 9">
-          <img src="/images/haein9.jpeg" alt="haein 9" />
-        </div>
-        <div class="item" style="--position: 10">
-          <img src="/images/haein10.jpeg" alt="haein 10" />
-        </div>
-      </div>
-      <div class="content">
-        <h1 data-content="I LOVE YOU">I LOVE YOU</h1>
-        <div class="author">
-          <h2 data-content="Vierzha">Vierzha</h2>
-          <p
-            data-content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            nihil impedit temporibus"
-            class="description"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            nihil impedit temporibus
-          </p>
-        </div>
-        <div class="next"><a href="#about">  ->  </a></div>
-        <div class="model"></div>
-      </div>
-    </div>
-    <div id="about" class="banner-box">
-      <img class="h" src="images/sep.png" alt="sep" />
-      <img class="exl" src="images/exl.png" alt="" />
-      <h2 class="headsc">About me</h2>
-    </div>
-    <div class="sliderrr" style="--width: 100px; --height: 50px; --quantity: 8">
-      <div class="list">
-        <div class="item" style="--position: 1">
-          <img src="images/vb.png" alt="1" />
-        </div>
-        <div class="item" style="--position: 2">
-          <img src="images/va.png" alt="2" />
-        </div>
-        <div class="item" style="--position: 3">
-          <img src="images/vs.png" alt="3" />
-        </div>
-        <div class="item" style="--position: 4">
-          <img src="images/vx.png" alt="4" />
-        </div>
-        <div class="item" style="--position: 5">
-          <img src="images/vy.png" alt="5" />
-        </div>
-        <div class="item" style="--position: 6">
-          <img src="images/vz.png" alt="6" />
-        </div>
-        <div class="item" style="--position: 7">
-          <img src="images/vr.png" alt="7" />
-        </div>
-        <div class="item" style="--position: 8">
-          <img src="images/vg.png" alt="8" />
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="text">
-      <div class="parag1">
-        <h3>Title 1</h3>
-        <p>
-          Lorem 1 ipsum dolor sit, amet consectetur adipisicing elit. Vel ab
-          minima eum, veritatis laboriosam, animi, tempora natus provident
-          deserunt dolorum recusandae doloremque blanditiis error eius! Hic
-          ipsam deleniti obcaecati ea.
-        </p>
-      </div>
-      <div class="parag2">
-        <h3>Title 2</h3>
-        <p>
-          Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Non
-          quaerat quo dolor minus magnam. Impedit accusantium harum quasi
-          cupiditate maxime tenetur id, eveniet iusto odio deserunt fuga
-          voluptatibus obcaecati similique.
-        </p>
-      </div>
-      <div class="parag3">
-        <h3>Title 3</h3>
-        <p>
-          Lorem 3 ipsum dolor sit amet consectetur, adipisicing elit. Totam,
-          dicta! Quibusdam quo enim pariatur excepturi! Sit possimus optio nisi
-          id expedita. Consequuntur eligendi dolore omnis tempore, tempora sint
-          perspiciatis aspernatur?
-        </p>
-      </div>
-      <div class="next2"><a href="#projects">  ->  </a></div>
-      <!-- <div class="parag4">
-        <h3>Title 4</h3>
-        <p>
-          Lorem 4, ipsum dolor sit amet consectetur adipisicing elit. Modi
-          voluptatem assumenda soluta voluptatum vitae magni. Dolorem rerum, ab,
-          dolores porro pariatur excepturi reiciendis obcaecati, delectus odit
-          deleniti amet minima inventore?
-        </p>
-      </div>
-      <div class="parag5">
-        <h3>Title 5</h3>
-        <p>
-          Lorem 5 ipsum, dolor sit amet consectetur adipisicing elit. Iusto non
-          suscipit deleniti quia, distinctio animi blanditiis nam odio aliquam
-          rerum quam voluptates sed corrupti praesentium architecto veniam cum
-          in delectus?
-        </p>
-      </div> -->
-    </div>
-    <!-- <div
-      class="sliderr"
-      reverse="true"
-      style="--width: 10vw; --quantity: 7"
-    >
-      <div class="list">
-        <div class="item" style="--position: 1">
-          <img src="images/slider2_1.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 2">
-          <img src="images/slider2_2.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 3">
-          <img src="images/slider2_3.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 4">
-          <img src="images/slider2_4.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 5">
-          <img src="images/slider2_5.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 6">
-          <img src="images/slider2_6.jpeg" alt="" />
-        </div>
-        <div class="item" style="--position: 7">
-          <img src="images/slider2_7.jpeg" alt="" />
-        </div>
-      </div>
-    </div> -->
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <br /><br /><br /><br /><br /><br />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <hr />
-    <br />
-    <div id="projects" class="banner-box2">
-      <img class="h" src="images/sep.png" alt="sep" />
-      <img class="exl" src="images/exl.png" alt="" />
-      <h2 class="headsc2">my projects</h2>
-    </div>
-    <div class="grid-container">
-      <div class="g-item"><h3>project 1</h3></div>
-      <div class="g-item"><h3>project 2</h3></div>
-      <div class="g-item"><h3>project 3</h3></div>
-      <div class="g-item"><h3>project 4</h3></div>
-      <div class="g-item"><h3>project 5</h3></div>
-      <div class="g-item"><h3>project 6</h3></div>
-      <div class="g-item"><h3>project 7</h3></div>
-      <div class="g-item"><h3>project 8</h3></div>
-      <div class="g-item"><h3>project 9</h3></div>
-    </div>
-    <div class="next3"><a href="#home">  <<-  </a></div>
-    <br /><br /><br /><br /><br /><br />
-    <div class="w">
-      <p class="wr">this is not the final version</p>
-    </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <script src="script.js"></script>
+    <script>
+        //lamp
+      const lampStates = [
+    { 
+        lamp: "OFF", 
+        themeColor: "#2a2c30", 
+        themeGlowRGB: "42, 44, 48", 
+        shadeColor: "#2c2c2c", 
+        bulbColor: "#1a1a1a", 
+        lightOpacity: "0", 
+        btnBg: "#2a2c30", 
+        btnText: "#888", 
+        faceAwakeOpacity: "0", 
+        faceSleepOpacity: "1" 
+    },
+    
+    { 
+        lamp: "ON", 
+        themeColor: "#a855f7", 
+        themeGlowRGB: "168, 85, 247", 
+        shadeColor: "#5b476b", 
+        bulbColor: "#f3e8ff", 
+        lightOpacity: "0.2", 
+        btnBg: "#a855f7", 
+        btnText: "#fff", 
+        faceAwakeOpacity: "1", 
+        faceSleepOpacity: "0" 
+    },
+    
+    { 
+        lamp: "OFF", 
+        themeColor: "#2a2c30", 
+        themeGlowRGB: "42, 44, 48", 
+        shadeColor: "#2c2c2c", 
+        bulbColor: "#1a1a1a", 
+        lightOpacity: "0", 
+        btnBg: "#2a2c30", 
+        btnText: "#888", 
+        faceAwakeOpacity: "0", 
+        faceSleepOpacity: "1" 
+    },
+    
+    { 
+        lamp: "ON", 
+        themeColor: "#2dd4bf", 
+        themeGlowRGB: "45, 212, 191", 
+        shadeColor: "#455e5a", 
+        bulbColor: "#e6fffa", 
+        lightOpacity: "0.2", 
+        btnBg: "#2dd4bf", 
+        btnText: "#fff", 
+        faceAwakeOpacity: "1", 
+        faceSleepOpacity: "0" 
+    }
+];
+
+      let currentStateIndex = 0;
+      const pullString = document.querySelector(".pull-string-group");
+      const rootStyles = document.documentElement.style;
+      const faceAwake = document.querySelector(".face-awake");
+      const faceSleep = document.querySelector(".face-sleep");
+
+      function toggleLamp() {
+        pullString.style.transform = "translateY(15px)";
+        setTimeout(() => {
+          pullString.style.transform = "translateY(0)";
+        }, 150);
+
+        currentStateIndex = (currentStateIndex + 1) % lampStates.length;
+        const config = lampStates[currentStateIndex];
+
+        rootStyles.setProperty("--theme-color", config.themeColor);
+        rootStyles.setProperty("--theme-glow-rgb", config.themeGlowRGB);
+        rootStyles.setProperty("--shade-color", config.shadeColor);
+        rootStyles.setProperty("--bulb-color", config.bulbColor);
+        rootStyles.setProperty("--light-opacity", config.lightOpacity);
+        rootStyles.setProperty("--btn-bg", config.btnBg);
+        rootStyles.setProperty("--btn-text-color", config.btnText);
+
+        faceAwake.style.opacity = config.faceAwakeOpacity;
+        faceSleep.style.opacity = config.faceSleepOpacity;
+      }
+
+
+      // log
+      function senddata() {
+            const name = document.getElementById("name").value;
+            const error = document.getElementById("Error");
+            
+            if (name.trim() === "") {
+                error.innerText = "u can skip this page if u want";
+                return;
+            }
+            
+            localStorage.setItem("userName", name);
+            
+            window.location.href = "main.html";
+        }
+
+      function cls(){
+        const error = document.getElementById("Error");
+        error.innerText = "";
+      }
+
+
+    </script>
   </body>
 </html>
